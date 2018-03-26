@@ -16,7 +16,7 @@ app.config([
   }
 ]);
 // 入口组件
-app.value('$routerRootComponent', 'AppComponent');
+app.value('$routerRootComponent', 'kityminderApp');
 
 router.init(app);
 

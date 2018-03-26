@@ -17,5 +17,11 @@ module.exports = {
   },
   module: {
     rules: [{ test: /\.js$/, use: ['babel-loader'], exclude: /node_modules/ }]
+  },
+  devServer: {
+    contentBase: util.root('dist'),
+    host: '0.0.0.0',
+    port: 7410,
+    open: true
   }
 };

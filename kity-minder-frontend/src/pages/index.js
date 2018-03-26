@@ -1,6 +1,7 @@
-import { NotfoundController } from './404/NotfoundController';
-import { AppComponent } from './app/AppComponent';
-import { EditorController } from './editor/EditorController';
-import { LoginController } from './login/LoginController';
+import { NotfoundComponent } from './404/notfound.component';
+import { AppComponent } from './app/app.component';
+import { EditorComponent } from './editor/editor.component';
+import { LayoutComponent } from './layout/layout.component';
+import { LoginComponent } from './login/login.component';
 
-export const PAGES = [NotfoundController, EditorController, LoginController, AppComponent];
+export const PAGES = [AppComponent, EditorComponent, LayoutComponent, LoginComponent, NotfoundComponent];

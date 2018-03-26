@@ -3,25 +3,15 @@ import { PAGES } from './pages';
 export const router = {
   init(app) {
     PAGES.forEach(comp => {
-      app.component(comp.selector, {
+      const compConfig = {
         templateUrl: comp.templateUrl,
         controller: comp
-      });
+      };
+      if (comp.$routeConfig) {
+        compConfig.$routeConfig = comp.$routeConfig;
+      }
+      app.component(comp.selector, compConfig);
     });
-
-    // app.config([
-    //   '$routeProvider',
-    //   $routeProvider => {
-    //     routes.forEach(route => {
-    //       app.controller(route.name, route.controller);
-    //       $routeProvider.when(route.path, {
-    //         controller: `${route.name} as vm`,
-    //         templateUrl: route.templateUrl
-    //       });
-    //     });
-    //     $routeProvider.otherwise('/404');
-    //   }
-    // ]);
   }
 };
 
