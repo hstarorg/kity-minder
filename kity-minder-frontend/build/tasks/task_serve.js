@@ -1,4 +1,5 @@
 const browserSync = require('browser-sync');
+const historyFallback = require('connect-history-api-fallback');
 
 let serverInstance;
 
@@ -8,7 +9,8 @@ module.exports = (gulp, params) => {
       server: {
         baseDir: params.distFolder
       },
-      ghostMode: false
+      ghostMode: false,
+      middleware: [historyFallback()]
     });
     done();
   });

@@ -10,20 +10,10 @@ export const router = {
       if (comp.$routeConfig) {
         compConfig.$routeConfig = comp.$routeConfig;
       }
+      if (comp.$bindings) {
+        compConfig.bindings = comp.$bindings;
+      }
       app.component(comp.selector, compConfig);
     });
   }
 };
-
-// .component('kity-minder-app', {
-//   //     template:
-//   //       '<nav>\n' +
-//   //       '  <a ng-link="[\'CrisisCenter\']">Crisis Center</a>\n' +
-//   //       '  <a ng-link="[\'Heroes\']">Heroes</a>\n' +
-//   //       '</nav>\n' +
-//   //       '<ng-outlet></ng-outlet>\n',
-//   //     $routeConfig: [
-//   //       { path: '/crisis-center/...', name: 'CrisisCenter', component: 'crisisCenter', useAsDefault: true },
-//   //       { path: '/heroes/...', name: 'Heroes', component: 'heroes' }
-//   //     ]
-//   //   });
