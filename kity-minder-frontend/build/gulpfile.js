@@ -1,10 +1,16 @@
 const gulp = require('gulp');
-const shelljs = require('shelljs');
+const util = require('./util');
 
-gulp.task('serve', done => {});
+const minify = process.argv.includes('--minify');
 
-gulp.task('restart', done => {});
+const params = {
+  minify,
+  distFolder: util.root('dist')
+};
 
-gulp.task('watch', done => {});
+// Load tasks
+util.loadTasks(gulp, params, util.root('build/tasks'));
 
-gulp.task('dev', gulp.series('watch'));
+gulp.task('dev', gulp.series('clean', 'assets', gulp.parallel('serve', 'watch')));
+
+gulp.task('build', gulp.series('clean', 'assets'));

@@ -1,0 +1,23 @@
+{
+  "vendor.js": [
+    "node_modules/jquery/dist/jquery.js",
+    "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+    "node_modules/angular/angular.js",
+    "node_modules/angular-route/angular-route.js",
+    "node_modules/angular-route/angular-route.js"
+  ],
+  "vendor.js.min": [
+    "node_modules/jquery/dist/jquery.min.js",
+    "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+    "node_modules/angular/angular.min.js",
+    "node_modules/angular-route/angular-route.min.js"
+  ],
+  "vendor.css": [
+    "node_modules/bootstrap/dist/css/bootstrap.css",
+    "node_modules/angular/angular-csp.css"
+  ],
+  "vendor.css.min": [
+    "node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "node_modules/angular/angular-csp.css"
+  ]
+}

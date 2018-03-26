@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp dev --gulpfile build/gulpfile.js",
-    "build": "gulp build",
+    "dev": "gulp dev --gulpfile build/gulpfile.js --cwd ./",
+    "build": "gulp build --gulpfile build/gulpfile.js --cwd ./ --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
