@@ -16,7 +16,10 @@ module.exports = {
     extensions: ['.js']
   },
   module: {
-    rules: [{ test: /\.js$/, use: ['babel-loader'], exclude: /node_modules/ }]
+    rules: [
+      { test: /\.js$/, use: ['babel-loader'], exclude: /node_modules/ },
+      { test: /\.html$/, use: ['raw-loader'], exclude: /node_modules/ }
+    ]
   },
   devServer: {
     contentBase: util.root('dist'),

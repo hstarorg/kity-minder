@@ -1,6 +1,6 @@
 export class EditorComponent {
   static selector = 'editorComponent';
-  static templateUrl = 'pages/editor/editor.html';
+  static template = require('./editor.html');
   constructor() {}
 
   initEditor(editor, minder) {

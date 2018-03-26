@@ -33,6 +33,7 @@
     "connect-history-api-fallback": "^1.5.0",
     "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
+    "raw-loader": "^0.5.1",
     "shelljs": "^0.8.1",
     "webpack": "^4.2.0",
     "webpack-dev-server": "^3.1.1"

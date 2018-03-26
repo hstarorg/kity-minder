@@ -4,9 +4,14 @@ export const router = {
   init(app) {
     PAGES.forEach(comp => {
       const compConfig = {
-        templateUrl: comp.templateUrl,
         controller: comp
       };
+      if (comp.templateUrl) {
+        compConfig.templateUrl = comp.templateUrl;
+      }
+      if (comp.template) {
+        compConfig.template = comp.template;
+      }
       if (comp.$bindings) {
         compConfig.bindings = comp.$bindings;
       }

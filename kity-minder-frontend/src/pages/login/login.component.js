@@ -1,6 +1,6 @@
 export class LoginComponent {
   static selector = 'loginComponent';
-  static templateUrl = 'pages/login/login.html';
+  static template = require('./login.html');
   static $bindings = {};
   static $inject = ['$state'];
   constructor($state) {
