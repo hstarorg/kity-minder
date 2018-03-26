@@ -11,7 +11,7 @@ const webpackConfig = require('../webpack.config');
  */
 module.exports = (gulp, params) => {
   gulp.task('app.html', () => {
-    return gulp.src('src/index.html').pipe(gulp.dest(params.distFolder));
+    return gulp.src(['src/index.html', 'src/page[s]/**/*.html']).pipe(gulp.dest(params.distFolder));
   });
   gulp.task('app.js', done => {
     const compiler = webpack(webpackConfig);
