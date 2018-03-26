@@ -4,9 +4,30 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "gulp dev --gulpfile build/gulpfile.js",
+    "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "angular-route": "^1.6.9",
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "kityminder-editor": "^1.0.62",
+    "popper.js": "^1.14.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "shelljs": "^0.8.1"
+  },
+  "importSort": {
+    ".js, .jsx, .es6, .es": {
+      "style": "module-compact"
+    }
+  }
 }

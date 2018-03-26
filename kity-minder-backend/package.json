@@ -8,5 +8,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "importSort": {
+    ".js, .jsx, .es6, .es": {
+      "style": "module-compact"
+    }
+  }
 }
