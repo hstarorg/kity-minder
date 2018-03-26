@@ -6,10 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="assets/css/vendor.css">
 </head>
 
-<body>
+<body ng-app="kityminderDemo" ng-controller="MainController">
+  <h1 class="editor-title">KityMinder Editor - Powered By FEX</h1>
+  <kityminder-editor on-init="initEditor(editor, minder)"></kityminder-editor>
+  <script src="assets/js/vendor.js"></script>
+  <script>
+    angular.module('kityminderDemo', ['kityminderEditor'])
+      .config(function (configProvider) {
+        configProvider.set('imageUpload', '../server/imageUpload.php');
+      })
+      .controller('MainController', function ($scope) {
+        $scope.initEditor = function (editor, minder) {
+          window.editor = editor;
+          window.minder = minder;
+        };
+      });
 
+  </script>
 </body>
 
 </html>

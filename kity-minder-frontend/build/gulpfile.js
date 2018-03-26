@@ -11,6 +11,6 @@ const params = {
 // Load tasks
 util.loadTasks(gulp, params, util.root('build/tasks'));
 
-gulp.task('dev', gulp.series('clean', 'assets', gulp.parallel('serve', 'watch')));
+gulp.task('dev', gulp.series('clean', 'assets', 'app', gulp.parallel('serve', 'watch')));
 
-gulp.task('build', gulp.series('clean', 'assets'));
+gulp.task('build', gulp.series('clean', 'assets', 'app'));

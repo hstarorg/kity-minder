@@ -16,6 +16,13 @@ module.exports = (gulp, params) => {
       .pipe(concat('vendor.css', { newLine: '\n\n' }))
       .pipe(gulp.dest(path.join(params.distFolder, 'assets/css')));
   });
-  gulp.task('vendor', gulp.parallel('vendor.js', 'vendor.css'));
+  gulp.task('vendor.resources', done => {
+    const resources = assets['vendor.resources'];
+    Object.keys(resources).forEach(k => {
+      gulp.src(resources[k]).pipe(gulp.dest(path.join(params.distFolder, k)));
+    });
+    done();
+  });
+  gulp.task('vendor', gulp.parallel('vendor.js', 'vendor.css', 'vendor.resources'));
   gulp.task('assets', gulp.parallel('vendor'));
 };

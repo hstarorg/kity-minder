@@ -5,7 +5,7 @@ const shelljs = require('shelljs');
  * @param {GulpParams} params
  */
 module.exports = (gulp, params) => {
-  gulp.gulp.task('clean', done => {
+  gulp.task('clean', done => {
     shelljs.rm('-rf', params.distFolder);
     done();
   });

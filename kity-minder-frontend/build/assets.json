@@ -1,23 +1,56 @@
 {
   "vendor.js": [
     "node_modules/jquery/dist/jquery.js",
-    "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+    "node_modules/bootstrap/dist/js/bootstrap.js",
+
+    "node_modules/codemirror/lib/codemirror.js",
+    "node_modules/codemirror/mode/xml/xml.js",
+    "node_modules/codemirror/mode/javascript/javascript.js",
+    "node_modules/codemirror/mode/css/css.js",
+    "node_modules/codemirror/mode/htmlmixed/htmlmixed.js",
+    "node_modules/codemirror/mode/markdown/markdown.js",
+    "node_modules/codemirror/mode/gfm/gfm.js",
+    "node_modules/codemirror/addon/mode/overlay.js",
+
+    "node_modules/marked/lib/marked.js",
+
+    "src/assets/kity/kity.js",
+    "src/assets/hotbox/hotbox.js",
+    "src/assets/json-diff/json-diff.js",
+
     "node_modules/angular/angular.js",
     "node_modules/angular-route/angular-route.js",
-    "node_modules/angular-route/angular-route.js"
+    "node_modules/angular-ui-codemirror/src/ui-codemirror.js",
+    "src/assets/color-picker/dist/color-picker.js",
+    "node_modules/angular-bootstrap/ui-bootstrap-tpls.js",
+    "node_modules/kityminder-core/dist/kityminder.core.js",
+    "node_modules/kityminder-editor/dist/kityminder.editor.js"
   ],
   "vendor.js.min": [
     "node_modules/jquery/dist/jquery.min.js",
-    "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+    "node_modules/bootstrap/dist/js/bootstrap.min.js",
     "node_modules/angular/angular.min.js",
     "node_modules/angular-route/angular-route.min.js"
   ],
   "vendor.css": [
     "node_modules/bootstrap/dist/css/bootstrap.css",
-    "node_modules/angular/angular-csp.css"
+    "node_modules/angular/angular-csp.css",
+    "node_modules/codemirror/lib/codemirror.css",
+    "src/assets/hotbox/hotbox.css",
+    "src/assets/color-picker/dist/color-picker.css",
+    "node_modules/kityminder-core/dist/kityminder.core.css",
+    "node_modules/kityminder-editor/dist/kityminder.editor.css"
   ],
   "vendor.css.min": [
     "node_modules/bootstrap/dist/css/bootstrap.min.css",
     "node_modules/angular/angular-csp.css"
-  ]
+  ],
+  "vendor.resources": {
+    "assets/fonts": [
+      "node_modules/bootstrap/fonts/*.*"
+    ],
+    "assets/css": [
+      "node_modules/kityminder-editor/dist/image[s]/**/*"
+    ]
+  }
 }
