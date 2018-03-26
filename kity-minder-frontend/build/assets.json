@@ -19,7 +19,7 @@
     "src/assets/json-diff/json-diff.js",
 
     "node_modules/angular/angular.js",
-    "node_modules/angular-route/angular-route.js",
+    "node_modules/@uirouter/angularjs/release/angular-ui-router.js",
     "node_modules/angular-ui-codemirror/src/ui-codemirror.js",
     "src/assets/color-picker/dist/color-picker.js",
     "node_modules/angular-bootstrap/ui-bootstrap-tpls.js",

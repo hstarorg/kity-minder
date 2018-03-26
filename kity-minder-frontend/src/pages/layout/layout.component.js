@@ -8,10 +8,9 @@ export class LayoutComponent {
   static $bindings = {
     $router: '<'
   };
-  constructor() {}
-  $routerOnActivate(next, previous) {
-    if (localStorage.getItem('login') !== 'ok') {
-      this.$router.navigate(['Login']);
-    }
+  static $canActivate() {
+    return true;
   }
+  constructor() {}
+  $routerOnActivate(next, previous) {}
 }

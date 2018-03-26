@@ -1,6 +1,6 @@
 import { router } from './router.config';
 
-const app = angular.module('kity-minder-app', ['ngRoute', 'ngComponentRouter', 'kityminderEditor']);
+const app = angular.module('kity-minder-app', ['ui.router', 'kityminderEditor']);
 // 配置路由模式
 app.config([
   '$locationProvider',
