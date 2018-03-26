@@ -8,9 +8,5 @@ export class LayoutComponent {
   static $bindings = {
     $router: '<'
   };
-  static $canActivate() {
-    return true;
-  }
   constructor() {}
-  $routerOnActivate(next, previous) {}
 }

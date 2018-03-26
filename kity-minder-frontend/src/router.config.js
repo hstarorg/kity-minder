@@ -10,9 +10,6 @@ export const router = {
       if (comp.$bindings) {
         compConfig.bindings = comp.$bindings;
       }
-      if (comp.$canActivate) {
-        compConfig.$canActivate = comp.$canActivate;
-      }
       app.component(comp.selector, compConfig);
     });
     const states = [
@@ -23,8 +20,16 @@ export const router = {
     ];
     app.config([
       '$stateProvider',
-      $stateProvider => {
+      '$transitionsProvider',
+      ($stateProvider, $transitionsProvider) => {
         states.forEach(state => $stateProvider.state(state));
+        // 校验登录状态
+        $transitionsProvider.onStart({ to: 'layout.**' }, function(trans) {
+          var $state = trans.router.stateService;
+          if (localStorage.getItem('login') !== 'ok') {
+            return $state.target('login');
+          }
+        });
       }
     ]);
   }
