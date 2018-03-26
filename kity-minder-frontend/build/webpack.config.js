@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'cheap-source-map',
   mode: 'development',
   entry: {
-    app: util.root('src/bootstrap.js')
+    app: util.root('src/index.js')
   },
   output: {
     path: util.root('dist'),
