@@ -14,7 +14,7 @@ module.exports = (gulp, params) => {
   });
 
   gulp.task('restart', done => {
-    serverInstance.reload();
+    serverInstance && serverInstance.reload();
     done();
   });
 };
