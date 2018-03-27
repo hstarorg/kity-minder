@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "fast-koa dev",
+    "build": "fast-koa build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,5 +15,12 @@
     ".js, .jsx, .es6, .es": {
       "style": "module-compact"
     }
+  },
+  "dependencies": {
+    "fast-koa": "0.0.1",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {
+    "fast-koa-cli": "0.0.1"
   }
 }
