@@ -1,12 +1,14 @@
-const { util } = require('../common');
-
-console.log(util.hmacSha1('admin', 'dfe1e4596abecd991c5e92d0956acf2f'));
+const { db } = require('../common');
 
 class DefaultAccountService {
   constructor() {}
 
-  doLogin(username, password) {}
-
-  doAutoLogin(token) {}
+  async doLogin(username, password) {
+    return {
+      username: 'xxxx',
+      nickName: 'Admin',
+      avatarUrl: ''
+    };
+  }
 }
 module.exports = DefaultAccountService;

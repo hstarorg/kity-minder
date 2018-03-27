@@ -1,3 +1,5 @@
 const db = require('./db');
 const util = require('./util');
-module.exports = { db, util };
+const tokenStore = require('./tokenStore');
+
+module.exports = { db, util, tokenStore };
