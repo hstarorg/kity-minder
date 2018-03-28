@@ -1,3 +1,22 @@
-<h1>Login</h1>
-
-<button ng-click="$ctrl.doLogin()">登录</button>
+<div class="page-login container">
+  <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+    <div class="panel panel-info">
+      <div class="panel-heading">登录到 Kity Minder</div>
+      <div class="panel-body">
+        <form>
+          <div class="form-group">
+            <label>用户名</label>
+            <input type="text" class="form-control" ng-model="$ctrl.user.username">
+          </div>
+          <div class="form-group">
+            <label>密码</label>
+            <input type="password" class="form-control" ng-model="$ctrl.user.password">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-block btn-danger" ng-click="$ctrl.doLogin()">登录</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

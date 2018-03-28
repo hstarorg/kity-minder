@@ -1,6 +1,9 @@
+import './config';
+
 import { util } from './common';
 import { PAGES } from './pages';
 import { routes } from './routes';
+import { accountService } from './services';
 
 const app = angular.module('kity-minder-app', ['ui.router', 'kityminderEditor']);
 // 配置路由模式
@@ -25,9 +28,9 @@ app.config([
     // 加载路由
     routes.forEach(state => $stateProvider.state(state));
     // 校验登录状态
-    $transitionsProvider.onStart({ to: 'layout.**' }, function(trans) {
+    $transitionsProvider.onStart({ to: 'layout.**' }, async function(trans) {
       var $state = trans.router.stateService;
-      if (localStorage.getItem('login') !== 'ok') {
+      if (!await accountService.checkIsLogged()) {
         return $state.target('login');
       }
     });

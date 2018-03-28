@@ -1,3 +1,4 @@
+import { storage } from './storage';
 import { util } from './util';
 
-export { util };
+export { storage, util };
