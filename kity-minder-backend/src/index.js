@@ -2,7 +2,7 @@ const path = require('path');
 const fastKoa = require('fast-koa');
 const config = require('./config');
 
-fastKoa.initApp({ routesPath: config.routesPath });
+fastKoa.initApp({ routesPath: config.routesPath, enableCors: true });
 
 fastKoa
   .listen(config.port)
