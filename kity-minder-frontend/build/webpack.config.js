@@ -19,7 +19,8 @@ module.exports = {
     rules: [
       { test: /\.js$/, use: ['babel-loader'], exclude: /node_modules/ },
       { test: /\.html$/, use: ['raw-loader'], exclude: /node_modules/ },
-      { test: /\.css$/, use: ['style-loader', 'css-loader'], exclude: /node_modules/ }
+      { test: /\.css$/, use: ['style-loader', 'css-loader'], exclude: /node_modules/ },
+      { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'], exclude: /node_modules/ }
     ]
   },
   devServer: {
