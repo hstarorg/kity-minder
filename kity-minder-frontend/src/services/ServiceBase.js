@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { messageBox } from '../common';
 
 export class ServiceBase {
   constructor(baseURL) {
@@ -33,7 +34,20 @@ export class ServiceBase {
       data,
       baseURL: this.baseURL
     });
-    return axios(config);
+    return axios(config)
+      .then(res => {
+        return res;
+      })
+      .catch(err => {
+        let errMessage;
+        try {
+          errMessage = err.response.data.error;
+        } catch (e) {}
+        if (errMessage) {
+          messageBox.error(errMessage);
+        }
+        return Promise.reject(err);
+      });
   }
 
   _buildOptions(options) {

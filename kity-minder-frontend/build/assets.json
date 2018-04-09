@@ -17,6 +17,7 @@
     "src/assets/kity/kity.js",
     "src/assets/hotbox/hotbox.js",
     "src/assets/json-diff/json-diff.js",
+    "src/assets/layer/layer.js",
 
     "node_modules/angular/angular.js",
     "node_modules/@uirouter/angularjs/release/angular-ui-router.js",
@@ -38,19 +39,13 @@
     "node_modules/codemirror/lib/codemirror.css",
     "src/assets/hotbox/hotbox.css",
     "src/assets/color-picker/dist/color-picker.css",
+    "src/assets/layer/theme/default/layer.css",
     "node_modules/kityminder-core/dist/kityminder.core.css",
     "node_modules/kityminder-editor/dist/kityminder.editor.css"
   ],
-  "vendor.css.min": [
-    "node_modules/bootstrap/dist/css/bootstrap.min.css",
-    "node_modules/angular/angular-csp.css"
-  ],
+  "vendor.css.min": ["node_modules/bootstrap/dist/css/bootstrap.min.css", "node_modules/angular/angular-csp.css"],
   "vendor.resources": {
-    "assets/fonts": [
-      "node_modules/bootstrap/fonts/*.*"
-    ],
-    "assets/css": [
-      "node_modules/kityminder-editor/dist/image[s]/**/*"
-    ]
+    "assets/fonts": ["node_modules/bootstrap/fonts/*.*"],
+    "assets/css": ["node_modules/kityminder-editor/dist/image[s]/**/*", "src/assets/layer/theme/default/*.*"]
   }
 }

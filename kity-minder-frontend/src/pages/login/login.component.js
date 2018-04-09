@@ -1,5 +1,6 @@
 import './login.css';
 
+import { storage } from '../../common';
 import { accountService } from '../../services';
 
 export class LoginComponent {
@@ -17,8 +18,16 @@ export class LoginComponent {
     password: ''
   };
 
+  $onInit() {
+    const username = storage.local.get('username');
+    if (username) {
+      this.user.username = username;
+    }
+  }
+
   async doLogin() {
     await accountService.doLogin(this.user.username, this.user.password);
+    storage.local.set('username', this.user.username);
     this.$state.go('layout.home');
   }
 }

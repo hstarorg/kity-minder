@@ -3,6 +3,7 @@ module.exports = {
   routesPath: path.join(__dirname, 'routes'),
   port: 7777,
   apiPrefix: '/api/v1',
+  debug: true,
   dbConfig: {
     // 账户配置信息
     connectionLimit: 10,
