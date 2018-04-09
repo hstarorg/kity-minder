@@ -2,7 +2,10 @@ const config = require('../config');
 const { util, tokenStore, db } = require('../common');
 const { UserSqls } = require('./sqlstore');
 
-const _buildUser = (token, user) => ({ token, user });
+const _buildUser = (token, user) => {
+  delete user.password;
+  return { token, user };
+};
 
 const doLogin = async ctx => {
   const { body } = ctx.request;

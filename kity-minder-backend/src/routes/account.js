@@ -6,8 +6,11 @@ const router = new Router({
   prefix: `${config.apiPrefix}/account`
 });
 
-router.post('/login', accountBiz.doLogin); // 根据账户、密码进行登录
-router.post('/autologin', accountBiz.doAutoLogin); // 根据Token，进行自动登录
+router
+  // 根据账户、密码进行登录
+  .post('/login', accountBiz.doLogin)
+  // 根据Token，进行自动登录
+  .post('/autologin', accountBiz.doAutoLogin);
 
 module.exports = {
   router

@@ -17,8 +17,9 @@ CREATE TABLE `mind` (
   `name` varchar(200) NOT NULL COMMENT '思维导图名称',
   `createDate` bigint(20) NOT NULL COMMENT '创建时间',
   `lastUpdateDate` bigint(20) NOT NULL COMMENT '最后更新时间',
+  `status` varchar(50) NOT NULL COMMENT '状态（active, deleted）',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- 创建思维导图数据表
 CREATE TABLE `mind_version` (
