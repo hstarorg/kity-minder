@@ -30,9 +30,16 @@ app.config([
     // 校验登录状态
     $transitionsProvider.onStart({ to: 'layout.**' }, async function(trans) {
       var $state = trans.router.stateService;
-      if (!await accountService.checkIsLogged()) {
-        return $state.target('login');
-      }
+      return accountService
+        .checkIsLogged()
+        .then(isLogged => {
+          if (!isLogged) {
+            return $state.target('login');
+          }
+        })
+        .catch(() => {
+          return $state.target('login');
+        });
     });
   }
 ]);
