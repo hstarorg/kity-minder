@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { messageBox } from '../common';
+import { accountService } from './account.service';
 
 export class ServiceBase {
   constructor(baseURL) {
@@ -34,6 +35,11 @@ export class ServiceBase {
       data,
       baseURL: this.baseURL
     });
+    // 强制设置token
+    if (accountService.token) {
+      config.headers = config.headers || {};
+      config.headers['x-token'] = accountService.token;
+    }
     return axios(config)
       .then(res => {
         return res;

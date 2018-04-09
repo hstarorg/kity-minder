@@ -5,4 +5,12 @@
     <th>最后修改时间</th>
     <th>操作</th>
   </tr>
+  <tr ng-repeat="item in $ctrl.minderList">
+    <td>{{item.name}}</td>
+    <td>暂无描述</td>
+    <td>{{item.lastUpdateDate}}</td>
+    <td>
+      <a ui-sref="layout.editor({id:item.id})">编辑</a>
+    </td>
+  </tr>
 </table>
