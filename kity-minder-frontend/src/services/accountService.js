@@ -16,8 +16,13 @@ class AccountService extends ServiceBase {
     return storage.local.get(USER_TOKEN_TOKEN);
   }
 
+  getUser() {
+    return this.user;
+  }
+
   _setUserInfo(data) {
     storage.local.set(USER_TOKEN_TOKEN, data.token);
+    this.user = data.user;
     this.isLogged = true;
   }
 

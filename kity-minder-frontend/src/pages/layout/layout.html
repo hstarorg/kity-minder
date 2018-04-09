@@ -15,8 +15,23 @@
         <li class="active">
           <a ui-sref="layout.home">Home</a>
         </li>
-        <li>
-          <a ui-sref="login">Login</a>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle user-logo-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+            <img class="user-logo" src="{{$ctrl.userAvatarUrl}}" alt="logo">
+            <!-- <span class="caret"></span> -->
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">个人设置</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a ng-click="$ctrl.doLogout()">
+                <i class="glyphicon glyphicon-log-out"></i> 注销登录</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
