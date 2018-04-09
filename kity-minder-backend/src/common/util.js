@@ -8,5 +8,12 @@ module.exports = {
   },
   buildToken() {
     return this.hmacSha1(Math.random().toString(16), Math.random().toString(16));
+  },
+  throwError(message, status = 400) {
+    const err = new Error(message);
+    err.status = status;
+    err.isBiz = true;
+    err.expose = true;
+    throw err;
   }
 };

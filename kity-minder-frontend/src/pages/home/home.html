@@ -1,7 +1,7 @@
 <div class="page-home">
   <div class="left-panel">
     <div class="text-center">
-      <button class="btn btn-info">新建思维导图</button>
+      <button class="btn btn-info" ng-click="$ctrl.createNewMinder()">新建思维导图</button>
     </div>
     <hr>
     <ul class="menu-panel">
@@ -20,9 +20,9 @@
     </ul>
   </div>
   <div class="right-panel">
-    <h1>Home</h1>
+    <!-- <h1>Home</h1>
     <a ui-sref="layout.editor({id:1})">Go Editor</a>
-    <hr>
+    <hr> -->
     <ui-view></ui-view>
   </div>
 </div>

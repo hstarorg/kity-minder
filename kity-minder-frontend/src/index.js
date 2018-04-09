@@ -1,4 +1,5 @@
 import './config';
+import './less/all.less';
 
 import { util } from './common';
 import { PAGES } from './pages';

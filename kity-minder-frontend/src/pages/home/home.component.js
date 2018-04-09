@@ -8,4 +8,8 @@ export class HomeComponent {
   constructor($state) {
     this.$state = $state;
   }
+
+  createNewMinder() {
+    this.$state.go('layout.editor', { id: 1 });
+  }
 }

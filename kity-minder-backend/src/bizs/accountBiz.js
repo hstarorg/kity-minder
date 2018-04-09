@@ -1,15 +1,19 @@
 const config = require('../config');
-const { util, tokenStore } = require('../common');
-// 初始化账户Service
-const DefaultAccountService = require('../services/DefaultAccountService');
-
-const accountService = new DefaultAccountService();
+const { util, tokenStore, db } = require('../common');
+const { UserSqls } = require('./sqlstore');
 
 const _buildUser = (token, user) => ({ token, user });
 
 const doLogin = async ctx => {
   const { body } = ctx.request;
-  const user = await accountService.doLogin(body.username, body.pasword);
+  const sqlParams = {
+    username: body.username,
+    password: util.hmacSha1(body.password, config.hashKey)
+  };
+  const user = await db.executeScalar(UserSqls.QUERY_USER_BY_USERNAME_PASSWORD, sqlParams);
+  if (!user) {
+    util.throwError('账户名密码不匹配');
+  }
   const token = util.buildToken();
   tokenStore.set(token, user);
   ctx.body = _buildUser(token, user);
