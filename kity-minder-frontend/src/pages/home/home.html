@@ -6,15 +6,15 @@
     <hr>
     <ul class="menu-panel">
       <li>
-        <a ui-sref="layout.home">
+        <a ui-sref="layout.home.my">
           <i class="glyphicon glyphicon-list-alt"></i> 我的导图</a>
       </li>
       <li>
-        <a ui-sref="layout.fav">
+        <a ui-sref="layout.home.fav">
           <i class="glyphicon glyphicon-heart"></i> 我的收藏</a>
       </li>
       <li>
-        <a ui-sref="layout.trash">
+        <a ui-sref="layout.home.trash">
           <i class="glyphicon glyphicon-trash"></i> 我的导图</a>
       </li>
     </ul>
@@ -22,6 +22,7 @@
   <div class="right-panel">
     <h1>Home</h1>
     <a ui-sref="layout.editor({id:1})">Go Editor</a>
-
+    <hr>
+    <ui-view></ui-view>
   </div>
 </div>
