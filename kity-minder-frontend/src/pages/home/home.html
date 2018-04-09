@@ -1,2 +1,27 @@
-<h1>Home</h1>
-<a ui-sref="layout.editor({id:1})">Go Editor</a>
+<div class="page-home">
+  <div class="left-panel">
+    <div class="text-center">
+      <button class="btn btn-info">新建思维导图</button>
+    </div>
+    <hr>
+    <ul class="menu-panel">
+      <li>
+        <a ui-sref="layout.home">
+          <i class="glyphicon glyphicon-list-alt"></i> 我的导图</a>
+      </li>
+      <li>
+        <a ui-sref="layout.fav">
+          <i class="glyphicon glyphicon-heart"></i> 我的收藏</a>
+      </li>
+      <li>
+        <a ui-sref="layout.trash">
+          <i class="glyphicon glyphicon-trash"></i> 我的导图</a>
+      </li>
+    </ul>
+  </div>
+  <div class="right-panel">
+    <h1>Home</h1>
+    <a ui-sref="layout.editor({id:1})">Go Editor</a>
+
+  </div>
+</div>

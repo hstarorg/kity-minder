@@ -1,3 +1,5 @@
+import './home.less';
+
 export class HomeComponent {
   static selector = 'homeComponent';
   static template = require('./home.html');
