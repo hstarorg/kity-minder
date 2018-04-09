@@ -17,6 +17,10 @@ module.exports = {
   SELECT * FROM mind
   WHERE userId = @userId AND status = @status;
   `,
+  GET_MINDER_BY_ID_STATUS: `
+  SELECT id, userId, name, status FROM mind
+  WHERE id = @id AND status = @status;
+  `,
   GET_MINDER_LATEST_DETAIL: `
   SELECT t1.*, t2.versionNo, t2.saveDate, t2.remark, t2.mindData
   FROM mind t1
@@ -32,5 +36,9 @@ module.exports = {
   WHERE t1.id = @id AND t1.userId = @userId AND t2.versionNo = @versionNo
   ORDER BY t2.id DESC
   LIMIT 1;
+  `,
+  INSERT_MINDER_VERSION: `
+  INSERT INTO mind_version(mindId, versionNo, saveDate, remark, mindData)
+  VALUES(@mindId, @versionNo, @saveDate, @remark, @mindData);
   `
 };

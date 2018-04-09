@@ -9,6 +9,9 @@ module.exports = {
   buildToken() {
     return this.hmacSha1(Math.random().toString(16), Math.random().toString(16));
   },
+  buildVersionNO(userId) {
+    return this.hmacSha1(`${userId}_${Date.now()}`, String(userId)).slice(0, 10);
+  },
   throwError(message, status = 400) {
     const err = new Error(message);
     err.status = status;

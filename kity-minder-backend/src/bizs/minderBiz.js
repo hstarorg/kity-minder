@@ -1,4 +1,4 @@
-const { db } = require('../common');
+const { db, util } = require('../common');
 const { MinderSqls } = require('./sqlstore');
 const { MinderValidator } = require('./validators');
 
@@ -47,6 +47,32 @@ const updateMinder = async ctx => {
   ctx.body = '';
 };
 
+const updateMinderData = async ctx => {
+  const { user } = ctx.state;
+  const { minderId } = ctx.params;
+  const { body } = ctx.request;
+  const sqlParams = {
+    id: minderId,
+    status: 'active'
+  };
+  // 先找到minder
+  const minder = await db.executeScalar(MinderSqls.GET_MINDER_BY_ID_STATUS, sqlParams);
+  if (!minder || minder.userId !== user.id) {
+    // 找不到或者所有权不对
+    return util.throwError('权限不足', 403);
+  }
+  const minderVersion = {
+    mindId: minderId,
+    versionNo: util.buildVersionNO(user.id),
+    saveDate: Date.now(),
+    remark: '',
+    mindData: body.data || ''
+  };
+  await db.executeInsert(MinderSqls.INSERT_MINDER_VERSION, minderVersion);
+  ctx.status = 202;
+  ctx.body = '';
+};
+
 const getMinderListByUser = async ctx => {
   const { user } = ctx.state;
   const sqlParams = {
@@ -77,6 +103,7 @@ module.exports = {
   createMinder,
   deleteMinder,
   updateMinder,
+  updateMinderData,
   getMinderListByUser,
   getMinderDetail,
   getMinderDetailByVersion

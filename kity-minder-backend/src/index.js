@@ -8,6 +8,8 @@ const { tokenStore } = require('./common');
 fastKoa.initApp({
   routesPath: config.routesPath,
   enableCors: true,
+  enableLogger: true,
+  enableResponseTime: true,
   onRoutesLoading(app) {
     app.use(errorHandler({ env: config.debug ? 'development' : 'production' }));
     app.use(accountBiz.setUserByToken);

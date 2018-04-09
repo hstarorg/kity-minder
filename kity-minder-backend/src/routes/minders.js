@@ -15,6 +15,8 @@ router
   .delete('/:minderId', minderBiz.deleteMinder)
   // 更新Minder
   .put('/:minderId', minderBiz.updateMinder)
+  // 更新具体的Minder数据
+  .put('/:minderId/data', minderBiz.updateMinderData)
   // 查询Minder列表
   .get('/', minderBiz.getMinderListByUser)
   // 获取特定的Minder详情
