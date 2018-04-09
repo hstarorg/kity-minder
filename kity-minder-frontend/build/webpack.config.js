@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const util = require('./util');
 
 module.exports = {
@@ -19,10 +20,25 @@ module.exports = {
     rules: [
       { test: /\.js$/, use: ['babel-loader'], exclude: /node_modules/ },
       { test: /\.html$/, use: ['raw-loader'], exclude: /node_modules/ },
-      { test: /\.css$/, use: ['style-loader', 'css-loader'], exclude: /node_modules/ },
-      { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'], exclude: /node_modules/ }
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        }),
+        exclude: /node_modules/
+      },
+      {
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'less-loader']
+        }),
+        exclude: /node_modules/
+      }
     ]
   },
+  plugins: [new ExtractTextPlugin('app/app.css')],
   devServer: {
     contentBase: util.root('dist'),
     host: '0.0.0.0',
