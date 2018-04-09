@@ -4,6 +4,7 @@ module.exports = {
   port: 7777,
   apiPrefix: '/api/v1',
   debug: true,
+  tokenKey: 'x-token',
   dbConfig: {
     // 账户配置信息
     connectionLimit: 10,

@@ -31,7 +31,25 @@ const doAutoLogin = async ctx => {
   ctx.body = true;
 };
 
+const setUserByToken = async (ctx, next) => {
+  const token = ctx.headers[config.tokenKey];
+  if (token) {
+    user = tokenStore.get(token);
+    ctx.state.user = user;
+  }
+  await next();
+};
+
+const mustLogin = async (ctx, next) => {
+  if (!ctx.state.user) {
+    return util.throwError('请登录后再试', 401);
+  }
+  await next();
+};
+
 module.exports = {
   doLogin,
-  doAutoLogin
+  doAutoLogin,
+  setUserByToken,
+  mustLogin
 };
