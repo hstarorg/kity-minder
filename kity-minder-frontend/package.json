@@ -23,7 +23,8 @@
     "json-diff": "^0.5.2",
     "kityminder-core": "^1.4.47",
     "kityminder-editor": "^1.0.62",
-    "marked": "^0.3.19"
+    "marked": "^0.3.19",
+    "mousetrap": "^1.6.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
