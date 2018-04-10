@@ -5,10 +5,11 @@ const { MinderValidator } = require('./validators');
 const createMinder = async ctx => {
   const { user } = ctx.state;
   const now = Date.now();
+  const { body } = ctx.request;
   const sqlParams = {
     userId: user.id,
     sourceId: 0,
-    name: '新建思维脑图',
+    name: body.name || '未命名思维导图',
     createDate: now,
     lastUpdateDate: now,
     status: 'active'
@@ -38,7 +39,7 @@ const updateMinder = async ctx => {
   const { body } = ctx.request;
   const sqlParams = {
     id: minderId,
-    name: body.name || '',
+    name: body.name || '未命名思维导图',
     userId: user.id,
     lastUpdateDate: Date.now()
   };

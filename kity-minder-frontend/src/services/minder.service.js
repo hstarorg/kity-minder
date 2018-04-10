@@ -9,8 +9,8 @@ class MinderService extends ServiceBase {
     const { data } = await this.get(`/minders`);
     return data;
   }
-  async createMinder() {
-    const { data } = await this.post(`/minders`, { name: 'xxxx' });
+  async createMinder(minderInfo) {
+    const { data } = await this.post(`/minders`, { name: minderInfo.name || '' });
     return data;
   }
 }

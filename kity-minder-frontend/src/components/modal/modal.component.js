@@ -18,6 +18,7 @@ export class ModalComponent {
   constructor($element, $scope) {
     this.$element = $element;
     this.$scope = $scope;
+    // this.$scope.$watch('$ctrl.shown', this.handleShownChange);
     util.watch(this, 'shown', this.handleShownChange);
   }
 
@@ -34,27 +35,19 @@ export class ModalComponent {
   }
 
   _updateShown(shown) {
-    this.shown = shown;
-    this.$scope.$apply();
+    this.$scope.$applyAsync(() => (this.shown = shown));
   }
 
   modalClass = '';
   modalInstance = null;
 
   handleCancelClick() {
-    Promise.resolve(() => (this.onCancel || noop)()).then(needHide => {
-      if (needHide !== false) {
-        this._updateShown(false);
-      }
-    });
+    this.onCancel();
+    this._updateShown(false);
   }
 
   handleOkClick() {
-    Promise.resolve(() => (this.onOk || noop)()).then(needHide => {
-      if (needHide !== false) {
-        this._updateShown(false);
-      }
-    });
+    this.onOk();
   }
 
   $onInit() {

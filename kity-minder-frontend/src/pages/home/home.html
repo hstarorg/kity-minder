@@ -1,7 +1,7 @@
 <div class="page-home">
   <div class="left-panel">
     <div class="text-center">
-      <button class="btn btn-info" ng-click="$ctrl.createNewMinder()">新建思维导图</button>
+      <button class="btn btn-info" ng-click="$ctrl.openMinderModal()">新建思维导图</button>
     </div>
     <hr>
     <ul class="menu-panel">
@@ -25,9 +25,17 @@
     <hr> -->
     <ui-view></ui-view>
   </div>
-  <bs-modal shown="$ctrl.minderModal.shown" title="$ctrl.minderModal.title">
-    <form class="form-hori">
-
+  <bs-modal shown="$ctrl.minderModal.shown" title="$ctrl.minderModal.title" on-ok="$ctrl.createNewMinder()" cancel-text="'取消'"
+    ok-text="'立即创建'">
+    <form>
+      <div class="form-group">
+        <label for="name">思维导图名称：</label>
+        <input type="text" class="form-control" id="name" placeholder="请输入思维导图名称" ng-model="$ctrl.minderInfo.name">
+      </div>
+      <div class="form-group">
+        <label for="description">描述信息：</label>
+        <textarea class="form-control" rows="8" id="description" placeholder="请输入描述信息" ng-model="$ctrl.minderInfo.description"></textarea>
+      </div>
     </form>
   </bs-modal>
 
