@@ -31,11 +31,11 @@ export class HomeComponent {
     if (!this.minderInfo.name) {
       return messageBox.error('请输入思维导图名称');
     }
-    minderService.createMinder(this.minderInfo).then(() => {
+    minderService.createMinder(this.minderInfo).then(minder => {
       this.$scope.$applyAsync(() => (this.minderModal.shown = false));
       messageBox.msg('创建成功');
       setTimeout(() => {
-        this.$state.go('layout.editor', { id: 1 });
+        this.$state.go('layout.editor', { id: minder.id });
       }, 1000);
     });
   }

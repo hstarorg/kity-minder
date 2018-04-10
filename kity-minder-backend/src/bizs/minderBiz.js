@@ -16,7 +16,7 @@ const createMinder = async ctx => {
   };
   const minderId = await db.executeInsert(MinderSqls.CREATE_MINDER, sqlParams);
   ctx.status = 201;
-  ctx.body = '';
+  ctx.body = { id: minderId };
 };
 
 const deleteMinder = async ctx => {

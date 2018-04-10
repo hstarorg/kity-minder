@@ -11,6 +11,7 @@
     <td>{{item.lastUpdateDate}}</td>
     <td>
       <a ui-sref="layout.editor({id:item.id})">编辑</a>
+      <a href="javascript:;" ng-click="$ctrl.confirmDeleteMinder(item)">删除</a>
     </td>
   </tr>
 </table>

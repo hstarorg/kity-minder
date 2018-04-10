@@ -22,5 +22,17 @@ class WebStorage {
   }
 }
 export const storage = {
+  async get(key) {
+    return await window.localforage.getItem(key);
+  },
+  async set(key, value) {
+    await window.localforage.setItem(key, value);
+  },
+  async remove(key) {
+    await window.localforage.removeItem(key);
+  },
+  async clear() {
+    await localforage.clear();
+  },
   local: new WebStorage(localStorage)
 };

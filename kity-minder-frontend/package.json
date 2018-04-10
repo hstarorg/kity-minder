@@ -23,6 +23,7 @@
     "json-diff": "^0.5.2",
     "kityminder-core": "^1.4.47",
     "kityminder-editor": "^1.0.62",
+    "localforage": "^1.7.1",
     "marked": "^0.3.19",
     "mousetrap": "^1.6.1"
   },

@@ -15,6 +15,7 @@
     "node_modules/marked/lib/marked.js",
     "node_modules/mousetrap/mousetrap.js",
     "node_modules/mousetrap/plugins/global-bind/mousetrap-global-bind.js",
+    "node_modules/localforage/dist/localforage.js",
 
     "src/assets/kity/kity.js",
     "src/assets/hotbox/hotbox.js",

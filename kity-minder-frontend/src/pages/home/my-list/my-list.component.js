@@ -1,3 +1,4 @@
+import { messageBox } from '../../../common';
 import { minderService } from '../../../services';
 
 export class MyListComponent {
@@ -13,9 +14,23 @@ export class MyListComponent {
   minderList = [];
 
   $onInit() {
+    this._loadMinderList();
+  }
+
+  _loadMinderList() {
     minderService.getMyMinderList().then(data => {
       this.minderList = data;
       this.$scope.$digest();
     });
+  }
+
+  confirmDeleteMinder(minder) {
+    if (confirm(`确实要删除 [${minder.name}]吗？`)) {
+      minderService.deleteMinderById(minder.id).then(() => {
+        messageBox.msg('删除成功！');
+        this._loadMinderList();
+      });
+    }
+    console.log(minder);
   }
 }
