@@ -2,6 +2,7 @@ import './config';
 import './less/all.less';
 
 import { util } from './common';
+import { COMPONENTS } from './components';
 import { PAGES } from './pages';
 import { routes } from './routes';
 import { accountService } from './services';
@@ -45,7 +46,8 @@ app.config([
   }
 ]);
 
-// 加载组件
+util.loadComponents(app, COMPONENTS);
+// 加载页面
 util.loadComponents(app, PAGES);
 
 // 启动

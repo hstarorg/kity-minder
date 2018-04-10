@@ -9,7 +9,13 @@ export class HomeComponent {
     this.$state = $state;
   }
 
+  minderModal = {
+    shown: false,
+    title: '新建思维导图'
+  };
+
   createNewMinder() {
-    this.$state.go('layout.editor', { id: 1 });
+    this.minderModal.shown = true;
+    // this.$state.go('layout.editor', { id: 1 });
   }
 }
