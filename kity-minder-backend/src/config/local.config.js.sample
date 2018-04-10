@@ -1,0 +1,11 @@
+module.exports = {
+  dbConfig: {
+    // 账户配置信息
+    connectionLimit: 10,
+    host: '<your db host>',
+    port: <your db port>,
+    user: '<your db user name>',
+    password: '<your db password>',
+    database: '<app database name>'
+  }
+};
