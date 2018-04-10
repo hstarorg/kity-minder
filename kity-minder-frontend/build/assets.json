@@ -24,7 +24,7 @@
     "node_modules/angular/angular.js",
     "node_modules/@uirouter/angularjs/release/angular-ui-router.js",
     "node_modules/angular-ui-codemirror/src/ui-codemirror.js",
-    "src/assets/color-picker/dist/color-picker.js",
+    "src/assets/color-picker/color-picker.js",
     "node_modules/angular-bootstrap/ui-bootstrap-tpls.js",
     "node_modules/kityminder-core/dist/kityminder.core.js",
     "node_modules/kityminder-editor/dist/kityminder.editor.js"
@@ -40,7 +40,7 @@
     "node_modules/angular/angular-csp.css",
     "node_modules/codemirror/lib/codemirror.css",
     "src/assets/hotbox/hotbox.css",
-    "src/assets/color-picker/dist/color-picker.css",
+    "src/assets/color-picker/color-picker.css",
     "src/assets/layer/theme/default/layer.css",
     "node_modules/kityminder-core/dist/kityminder.core.css",
     "node_modules/kityminder-editor/dist/kityminder.editor.css"
