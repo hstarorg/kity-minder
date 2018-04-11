@@ -1,4 +1,4 @@
-FROM docker.neg/base/nodejs:8.1.0-alpine
+FROM nodejs:8.11.1-alpine
 
 LABEL author="hm910705@163.com"
 
