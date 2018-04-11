@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   routesPath: path.join(__dirname, '..', 'routes'),
-  port: 7777,
+  port: 7000,
   apiPrefix: '/api/v1',
   debug: true,
   tokenKey: 'x-token',
