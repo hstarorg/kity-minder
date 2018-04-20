@@ -43,6 +43,32 @@ class MinderService extends ServiceBase {
     const { data } = await this.delete(`/minders/${minderId}`);
     return data;
   }
+
+  /**
+   * 获取回收站的思维导图
+   */
+  async getTrashMinderList() {
+    const { data } = await this.get(`/minders/trash`);
+    return data;
+  }
+
+  /**
+   * 强制删除
+   * @param {*} minderId
+   */
+  async forceDeleteMinderById(minderId) {
+    const { data } = await this.delete(`/minders/${minderId}/force`);
+    return data;
+  }
+
+  /**
+   * 撤销删除
+   * @param {*} minderId
+   */
+  async undoDeleteMinderById(minderId) {
+    const { data } = await this.put(`/minders/${minderId}/set_active`);
+    return data;
+  }
 }
 
 export const minderService = new MinderService();

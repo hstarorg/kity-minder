@@ -1,1 +1,17 @@
-<h1>Trash</h1>
+<table class="table table-bordered table-condensed full-table">
+  <tr>
+    <th>文件名</th>
+    <th>描述</th>
+    <th width="160">最后修改时间</th>
+    <th>操作</th>
+  </tr>
+  <tr ng-repeat="item in $ctrl.minderList">
+    <td>{{item.name}}</td>
+    <td>暂无描述</td>
+    <td>{{item.lastUpdateDate | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+    <td>
+      <a href="javascript:;" ng-click="$ctrl.confirmUndoDeleteMinder(item)">撤销删除</a>
+      <a href="javascript:;" ng-click="$ctrl.confirmForceDeleteMinder(item)">彻底删除</a>
+    </td>
+  </tr>
+</table>

@@ -31,6 +31,5 @@ export class MyListComponent {
         this._loadMinderList();
       });
     }
-    console.log(minder);
   }
 }
