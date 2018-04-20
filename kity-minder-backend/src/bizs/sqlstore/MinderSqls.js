@@ -40,5 +40,13 @@ module.exports = {
   INSERT_MINDER_VERSION: `
   INSERT INTO mind_version(mindId, versionNo, saveDate, remark, mindData)
   VALUES(@mindId, @versionNo, @saveDate, @remark, @mindData);
+  `,
+  DELETE_MINDER_BY_ID: `
+  DELETE FROM mind WHERE id = @mindId AND userId = @userId;
+  `,
+  DELETE_MINDER_DATA_BY_MINDERID: `
+  DELETE FROM mind_version
+  WHERE mindId IN
+  (SELECT id FROM mind WHERE id = @mindId AND userId = @userId);
   `
 };

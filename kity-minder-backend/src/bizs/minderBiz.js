@@ -113,6 +113,40 @@ const getTrashMinderList = async ctx => {
   ctx.body = minderList;
 };
 
+const forceDeleteMinder = async ctx => {
+  const { user } = ctx.state;
+  const { minderId } = ctx.params;
+  const sqlParams = {
+    mindId: minderId,
+    userId: user.id
+  };
+  const tran = await db.beginTransaction();
+  try {
+    await db.executeNonQuery(MinderSqls.DELETE_MINDER_BY_ID, sqlParams, tran);
+    await db.executeNonQuery(MinderSqls.DELETE_MINDER_DATA_BY_MINDERID, sqlParams, tran);
+    await db.commitTransaction(tran);
+  } catch (e) {
+    db.rollbackTransaction(tran);
+    util.throwError(e.message, 500);
+  }
+  ctx.status = 202;
+  ctx.body = '';
+};
+
+const undoDeleteMinder = async ctx => {
+  const { user } = ctx.state;
+  const { minderId } = ctx.params;
+  const sqlParams = {
+    status: MinderStatus.active,
+    id: minderId,
+    userId: user.id,
+    lastUpdateDate: Date.now()
+  };
+  const changeCount = await db.executeNonQuery(MinderSqls.UPDATE_MINDER_STATUS, sqlParams);
+  ctx.status = 202;
+  ctx.body = '';
+};
+
 module.exports = {
   createMinder,
   deleteMinder,
@@ -121,5 +155,7 @@ module.exports = {
   getMinderListByUser,
   getMinderDetail,
   getMinderDetailByVersion,
-  getTrashMinderList
+  getTrashMinderList,
+  forceDeleteMinder,
+  undoDeleteMinder
 };
