@@ -19,6 +19,8 @@ router
   .put('/:minderId/data', minderBiz.updateMinderData)
   // 查询Minder列表
   .get('/', minderBiz.getMinderListByUser)
+  // 获取回收站列表
+  .get('/trash', minderBiz.getTrashMinderList)
   // 获取特定的Minder详情
   .get('/:minderId', minderBiz.getMinderDetail)
   // 获取特定版本的Minder详情

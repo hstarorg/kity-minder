@@ -2,6 +2,12 @@ const { db, util } = require('../common');
 const { MinderSqls } = require('./sqlstore');
 const { MinderValidator } = require('./validators');
 
+const MinderStatus = {
+  active: 'active',
+  inactive: 'inactive',
+  deleted: 'deleted'
+};
+
 const createMinder = async ctx => {
   const { user } = ctx.state;
   const now = Date.now();
@@ -12,7 +18,7 @@ const createMinder = async ctx => {
     name: body.name || '未命名思维导图',
     createDate: now,
     lastUpdateDate: now,
-    status: 'active'
+    status: MinderStatus.active
   };
   const minderId = await db.executeInsert(MinderSqls.CREATE_MINDER, sqlParams);
   ctx.status = 201;
@@ -23,7 +29,7 @@ const deleteMinder = async ctx => {
   const { user } = ctx.state;
   const { minderId } = ctx.params;
   const sqlParams = {
-    status: 'deleted',
+    status: MinderStatus.deleted,
     id: minderId,
     userId: user.id,
     lastUpdateDate: Date.now()
@@ -54,7 +60,7 @@ const updateMinderData = async ctx => {
   const { body } = ctx.request;
   const sqlParams = {
     id: minderId,
-    status: 'active'
+    status: MinderStatus.active
   };
   // 先找到minder
   const minder = await db.executeScalar(MinderSqls.GET_MINDER_BY_ID_STATUS, sqlParams);
@@ -78,7 +84,7 @@ const getMinderListByUser = async ctx => {
   const { user } = ctx.state;
   const sqlParams = {
     userId: user.id,
-    status: 'active'
+    status: MinderStatus.active
   };
   const minderList = await db.executeQuery(MinderSqls.GET_MINDERS_BY_USER_STATUS, sqlParams);
   ctx.body = minderList;
@@ -100,6 +106,13 @@ const getMinderDetailByVersion = async ctx => {
   ctx.body = minder;
 };
 
+const getTrashMinderList = async ctx => {
+  const { user } = ctx.state;
+  const sqlParams = { userId: user.id, status: MinderStatus.deleted };
+  const minderList = await db.executeQuery(MinderSqls.GET_MINDERS_BY_USER_STATUS, sqlParams);
+  ctx.body = minderList;
+};
+
 module.exports = {
   createMinder,
   deleteMinder,
@@ -107,5 +120,6 @@ module.exports = {
   updateMinderData,
   getMinderListByUser,
   getMinderDetail,
-  getMinderDetailByVersion
+  getMinderDetailByVersion,
+  getTrashMinderList
 };
